@@ -30,7 +30,6 @@ city = input("Enter City: ")
 apis = [api1, api2, api3, api4, api5, api6]
 weather_data = []
 
-# Run all APIs concurrently
 with concurrent.futures.ThreadPoolExecutor() as executor:
 
     futures = []
@@ -43,8 +42,6 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         result = future.result()
         if result is not None:
             weather_data.append(result)
-
-# Calculate averages
 total_temp = 0
 total_humidity = 0
 conditions = []
@@ -59,7 +56,6 @@ avg_humidity = total_humidity / len(weather_data)
 
 common_condition = max(set(conditions), key=conditions.count)
 
-# Display Result
 print("\nWeather Report")
 print("City:", city)
 print("Average Temperature:", avg_temp, "°C")
